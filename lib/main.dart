@@ -198,36 +198,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/bottom_bar/home.dart';
 import 'package:flutter_application_1/bottom_bar/menu.dart';
 import 'package:flutter_application_1/bottom_bar/profile.dart';
+import 'package:flutter_application_1/custome_textfieldwidget.dart';
 void main()
 {
   runApp(Myapp());
 }
 class Myapp extends StatefulWidget{
   @override
-    State<StatefulWidget> createState()
+  State<StatefulWidget> createState()
   {
     return _Myappstate();
   }
-  }
-  class _Myappstate extends State<Myapp>{
-   int currenindex=0;
-List<Widget> screans=[
-  HomeScrean(),
-  MenuScrean(),
-  ProfileScrean()
-];
-Ontapped(int index){
-  setState(() {
-    currenindex=index;
-  });
 }
-TextEditingController nameController= TextEditingController();
+class _Myappstate extends State<Myapp>{
+  int currenindex=0;
+  List<Widget> screans=[
+    HomeScrean(),
+    MenuScrean(),
+    ProfileScrean()
+  ];
+  Ontapped(int index){
+    setState(() {
+      currenindex=index;
+    });
+  }
+  TextEditingController nameController= TextEditingController();
 
-    GlobalKey<FormState> _scaffoldkey=GlobalKey<FormState>();
-String name="";
+  GlobalKey<FormState> _scaffoldkey=GlobalKey<FormState>();
+  String name="";
 
   @override
-    Widget build(BuildContext context)
+  Widget build(BuildContext context)
   {
 
     return MaterialApp(
@@ -237,25 +238,25 @@ String name="";
           backgroundColor: Colors.black12,
 
 
-        appBar: AppBar(
+          appBar: AppBar(
 
-        backgroundColor: Colors.blue,
-          leading: Icon(Icons.account_circle_sharp),
-          centerTitle: true,
-          title: Text("My App",style: TextStyle(fontWeight: FontWeight.w600)),
-          actions: [
-                   Padding(
-                     padding: const EdgeInsets.all(10.0),
-                     child: Icon(Icons.accessibility_sharp),
-                   )
-                    ],
-          elevation: 50,
+            backgroundColor: Colors.blue,
+            leading: Icon(Icons.account_circle_sharp),
+            centerTitle: true,
+            title: Text("My App",style: TextStyle(fontWeight: FontWeight.w600)),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Icon(Icons.accessibility_sharp),
+              )
+            ],
+            elevation: 50,
 
-        ),
+          ),
 
-        /*screans[currenindex]*/
+          /*screans[currenindex]*/
 
-        /*Center(child:
+          /*Center(child:
 
          Card(//margin: EdgeInsets.all(25),
 
@@ -267,18 +268,19 @@ String name="";
         )),
         ),*/
 
-        body: Center(
+          body: Center(
 
 
-        child: Form(
-          key: _scaffoldkey,
+            child: Form(
+              key: _scaffoldkey,
 
 
 
-          child: Column(
+              child: Column(
 
 
-            children:  /* [
+
+                  children:  [
               Text(
                 'Constant: ${nameController.text}',
               ),
@@ -287,42 +289,32 @@ String name="";
 
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
+                child:Customtextwidget(
                   controller: nameController,
-                  onChanged: (value){
-                    setState(() {
-                      name=value;
-                    });
-                  },
-                  validator: (value){
-                    if(value!.isEmpty)
-                      return "Field is Empty";
-                    if(value.length<8)
-                      return "Less than 8";
-                  },
-                  decoration: InputDecoration(
-                    // hintMaxLines: 3,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(
-                            color: Colors.teal,
-                            width: 7,
-                          )
-                      ),
-
-                      fillColor: Colors.pinkAccent,
-                      filled: true,
-                      prefix: Icon(Icons.accessibility),
-                      suffix: Icon(Icons.add_call)
-
-                  ),
-                  keyboardType: TextInputType.number,
+                 keyboardType: TextInputType.name,
+                  prefixIcon: Icon(Icons.call),
                 ),
               ),
 
               SizedBox(
                 height: 20,
               ),
+
+
+
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child:Customtextwidget(
+                        controller: nameController,
+                        keyboardType: TextInputType.name,
+                        prefixIcon: Icon(Icons.call),
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: 20,
+                    ),
+
               InkWell(onTap: (){
                 if(_scaffoldkey.currentState!.validate())
                  {
@@ -333,11 +325,13 @@ String name="";
 
               },
                 child: Container(
+
                   height: 20,
                   width: 50,
                   color: Colors.pink,
                 ),
-              )
+              ),
+
 
 
 
@@ -346,88 +340,88 @@ String name="";
 
 
             ]
-*/
+/*
 
-           [
+                  [
 
 
-                  SizedBox(
-                    height: 10,
-                  ),
+                    SizedBox(
+                      height: 10,
+                    ),
 
-                  TextFormField(
-              decoration: InputDecoration(
-                labelText: "Enter your name",
+                    TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Enter your name",
 
-              ),
-                    controller: nameController,
-                    validator: (value) {
-                      if (value!.isEmpty || !RegExp(r'^[a-z A-Z]+$').hasMatch(value!)) {
-                        return "Enter correct name";
+                        ),
+                        controller: nameController,
+                        validator: (value) {
+                          if (value!.isEmpty || !RegExp(r'^[a-z A-Z]+$').hasMatch(value!)) {
+                            return "Enter correct name";
+                          }
+                          else
+                            return null;
+                        }
+                    ),
+
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Enter your Phone",
+
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty || !RegExp(r'^[+]*[0-9]{}+$').hasMatch(value!)) {
+                            return "Enter correct phone";
+                          }
+                          else
+                            return null;
+                        }
+
+                    ),
+
+
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Enter your Email",
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty || !RegExp(r'^[\w-\.]([\w-]+\.)+$').hasMatch(value!)) {
+                            return "Enter correct email";
+                          }
+                          else
+                            return null;
+                        }
+
+
+
+
+                    ),
+                    ElevatedButton(onPressed: (){
+                      if(_scaffoldkey.currentState!.validate())
+                      { setState(() {
+                        nameController.text=nameController.text;
+                      });
                       }
                       else
-                        return null;
-                    }
-                  ),
-
-                  SizedBox(
-                    height: 10,
-                  ),
-
-                  TextFormField(
-                      decoration: InputDecoration(
-                        labelText: "Enter your Phone",
-
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty || !RegExp(r'^[+]*[0-9]{}+$').hasMatch(value!)) {
-                          return "Enter correct phone";
-                        }
-                        else
-                          return null;
-                      }
-
-                  ),
-
-
-                  SizedBox(
-                    height: 10,
-                  ),
-
-                  TextFormField(
-                      decoration: InputDecoration(
-                        labelText: "Enter your Email",
-                      ),
-                      validator: (value) {
-                        if (value!.isEmpty || !RegExp(r'^[\w-\.]([\w-]+\.)+$').hasMatch(value!)) {
-                          return "Enter correct email";
-                        }
-                        else
-                          return null;
-                      }
+                        print(_scaffoldkey.toString());
+                    }, child: Text("Sign up"),),
+                    SizedBox(
+                      height: 10,
+                    ),
 
 
 
 
-                  ),
-                  ElevatedButton(onPressed: (){
-                    if(_scaffoldkey.currentState!.validate())
-                    { setState(() {
-                      nameController.text=nameController.text;
-                    });
-                    }
-                    else
-                      print(_scaffoldkey.toString());
-                  }, child: Text("Sign up"),),
-                  SizedBox(
-                    height: 10,
-                  ),
-
-
-
-
-    ]
-  ),
+                  ]*/
+              ),
 
 
 
@@ -435,11 +429,11 @@ String name="";
 
 
 
-          ),
-        )
+            ),
+          )
 
 
-          // child: TextField(),
+        // child: TextField(),
 
         //   child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         //     children: [
@@ -451,7 +445,7 @@ String name="";
         // )
 
 
-   /*     floatingActionButton: FloatingActionButton(onPressed: (){},child: Text("+"),),
+        /*     floatingActionButton: FloatingActionButton(onPressed: (){},child: Text("+"),),
         bottomNavigationBar: BottomNavigationBar(
           onTap: Ontapped,
           currentIndex: currenindex,
@@ -468,11 +462,11 @@ String name="";
 */
 
       ),
-      );
+    );
 
   }
-  }
-  /*
+}
+/*
   Widget build(BuildContext context)
   {
     return MaterialApp(
