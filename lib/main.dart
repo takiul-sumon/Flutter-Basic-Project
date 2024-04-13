@@ -193,12 +193,17 @@ List<Widget> screans=[
 
 }
 */
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_application_1/bottom_bar/home.dart';
 import 'package:flutter_application_1/bottom_bar/menu.dart';
 import 'package:flutter_application_1/bottom_bar/profile.dart';
 import 'package:flutter_application_1/custome_textfieldwidget.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 void main()
 {
   runApp(Myapp());
@@ -235,7 +240,7 @@ class _Myappstate extends State<Myapp>{
 
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: Colors.black12,
+          // backgroundColor: Colors.black12,
 
 
           appBar: AppBar(
@@ -268,10 +273,40 @@ class _Myappstate extends State<Myapp>{
         )),
         ),*/
 
-          body: Center(
+          body: CircleAvatar(
+            radius: 100,
+            backgroundColor: Colors.teal,
+            backgroundImage: AssetImage('assets/images/f1.jpg'),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(30),
+              child: Image.asset('assets/images/f1.jpg'),
+            ),
+          )
 
+
+
+
+
+
+
+          // Center(
+          //   child: ClipRRect(
+          //     borderRadius: BorderRadius.all(Radius.elliptical(20, 30)),
+          //
+          //     child: Container(
+          //
+          //
+          //     color: Colors.lightBlue,
+          //       child: Image.asset('assets/images/f1.jpg'),
+          //     ),
+          //   ),
+          // ),
+           /*
+
+            Box Shape Input form User
 
             child: Form(
+
               key: _scaffoldkey,
 
 
@@ -280,7 +315,13 @@ class _Myappstate extends State<Myapp>{
 
 
 
+
                   children:  [
+
+
+
+
+
               Text(
                 'Constant: ${nameController.text}',
               ),
@@ -331,6 +372,18 @@ class _Myappstate extends State<Myapp>{
                   color: Colors.pink,
                 ),
               ),
+                    Container(height:300,
+width: 300,
+                      // child:   Image.asset('assets/images/f1.jpg',fit: BoxFit.contain
+// child: Image.network('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bubt.edu.bd%2F&psig=AOvVaw1_QGP21Suj_PMKhrVnFVWo&ust=1712591759448000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOCAzdG7sIUDFQAAAAAdAAAAABAE',fit:BoxFit.fitWidth)
+),
+
+
+
+
+                  ]
+
+              ),
 
 
 
@@ -339,7 +392,7 @@ class _Myappstate extends State<Myapp>{
 
 
 
-            ]
+    )*/
 /*
 
                   [
@@ -421,7 +474,7 @@ class _Myappstate extends State<Myapp>{
 
 
                   ]*/
-              ),
+
 
 
 
@@ -430,7 +483,7 @@ class _Myappstate extends State<Myapp>{
 
 
             ),
-          )
+
 
 
         // child: TextField(),
@@ -461,8 +514,9 @@ class _Myappstate extends State<Myapp>{
 
 */
 
-      ),
-    );
+      );
+
+
 
   }
 }
