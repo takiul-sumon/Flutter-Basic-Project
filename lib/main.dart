@@ -199,10 +199,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/bottom_bar/home.dart';
 import 'package:flutter_application_1/bottom_bar/menu.dart';
 import 'package:flutter_application_1/bottom_bar/profile.dart';
 import 'package:flutter_application_1/custome_textfieldwidget.dart';
+import 'package:flutter_application_1/widget/Inbox.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 void main()
 {
@@ -215,322 +217,153 @@ class Myapp extends StatefulWidget{
     return _Myappstate();
   }
 }
-class _Myappstate extends State<Myapp>{
-  int currenindex=0;
-  List<Widget> screans=[
+class _Myappstate extends State<Myapp> {
+  int currenindex = 0;
+  List<Widget> screans = [
     HomeScrean(),
     MenuScrean(),
     ProfileScrean()
   ];
-  Ontapped(int index){
+
+  Ontapped(int index) {
     setState(() {
-      currenindex=index;
+      currenindex = index;
     });
   }
-  TextEditingController nameController= TextEditingController();
 
-  GlobalKey<FormState> _scaffoldkey=GlobalKey<FormState>();
-  String name="";
+  TextEditingController nameController = TextEditingController();
+
+  GlobalKey<FormState> _scaffoldkey = GlobalKey<FormState>();
+  String name = "";
+  var arr = [
+    'Japan',
+    'China',
+    'Indonesia',
+    'South Korea',
+    'Thailand',
+    'Singapore'
+  ];
 
   @override
-  Widget build(BuildContext context)
-  {
-
+  Widget build(BuildContext context) {
     return MaterialApp(
 
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          // backgroundColor: Colors.black12,
+        // backgroundColor: Colors.black12,
 
 
-          appBar: AppBar(
+        appBar: AppBar(
 
-            backgroundColor: Colors.blue,
-            leading: Icon(Icons.account_circle_sharp),
-            centerTitle: true,
-            title: Text("My App",style: TextStyle(fontWeight: FontWeight.w600)),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Icon(Icons.accessibility_sharp),
-              )
-            ],
-            elevation: 50,
+          backgroundColor: Colors.black12,
 
+        ),
+    body: Drawer(
+      child:Padding(
+        
+        padding: const EdgeInsets.fromLTRB(5, 3, 10, 4),
+        child: ListView(children: [
+          // Container(
+          //    child:  Column(
+          //      children: [
+          //        Text("Title",style:TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),),
+          //        Text("Subtext")
+          //      ],
+          //    )
+          //
+          // ),
+          ListTile(
+            title:  Text("Title",style:TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),),
+            subtitle: Text("Subtext"),
           ),
 
-          /*screans[currenindex]*/
 
-          /*Center(child:
 
-         Card(//margin: EdgeInsets.all(25),
+          ListTile(
+            title: Text("INBOX",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+            leading: Icon(Icons.inbox),
+            onTap: (){
+              Inbox();
+              onTap
+
+            },
+          ),
+          ListTile(
+            title: Text("OUTBOX",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+            leading: Icon(Icons.outbox),
+
+          ),
+          ListTile(
+            title: Text("FAVORITE",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+            leading: Icon(Icons.favorite),
+          ),
+          ListTile(
+            title: Text("Archive",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+            leading: Icon(Icons.archive),
+          ),
+          ListTile(
+            title: Text("Trash",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+            leading: Icon(Icons.restore_from_trash),
+          ),
+          ListTile(
+            title: Text("Spam",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+            leading: Icon(Icons.dangerous_rounded),
+          ),
+          Divider(color: Colors.black38,),
+          ListTile(
+            subtitle: Text("Labels"),
+          ),
+
+
+
+          ListTile(
+            title: Text("Family",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+            leading: Icon(Icons.bookmark),
+          ),
+          ListTile(
+            title: Text("Friends",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+            leading: Icon(Icons.bookmark),
+
+          ),
+          ListTile(
+            title: Text("Work",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+            leading: Icon(Icons.bookmark),
+          ),
+          Divider(height: 1,
+          color: Colors.black38,),
+      ListTile(
+        title: Text("Settings & Accounts",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+        leading: Icon(Icons.settings),
+
+      )
+
+        ],
 
-            child:
-        Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Text("Sumon",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-
-        )),
-        ),*/
-
-          body: CircleAvatar(
-            radius: 100,
-            backgroundColor: Colors.teal,
-            backgroundImage: AssetImage('assets/images/f1.jpg'),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Image.asset('assets/images/f1.jpg'),
-            ),
-          )
-
-
-
-
-
-
-
-          // Center(
-          //   child: ClipRRect(
-          //     borderRadius: BorderRadius.all(Radius.elliptical(20, 30)),
-          //
-          //     child: Container(
-          //
-          //
-          //     color: Colors.lightBlue,
-          //       child: Image.asset('assets/images/f1.jpg'),
-          //     ),
-          //   ),
-          // ),
-           /*
-
-            Box Shape Input form User
-
-            child: Form(
-
-              key: _scaffoldkey,
-
-
-
-              child: Column(
-
-
-
-
-                  children:  [
-
-
-
-
-
-              Text(
-                'Constant: ${nameController.text}',
-              ),
-              Text('Var char:${name}'),
-
-
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child:Customtextwidget(
-                  controller: nameController,
-                 keyboardType: TextInputType.name,
-                  prefixIcon: Icon(Icons.call),
-                ),
-              ),
-
-              SizedBox(
-                height: 20,
-              ),
-
-
-
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child:Customtextwidget(
-                        controller: nameController,
-                        keyboardType: TextInputType.name,
-                        prefixIcon: Icon(Icons.call),
-                      ),
-                    ),
-
-                    SizedBox(
-                      height: 20,
-                    ),
-
-              InkWell(onTap: (){
-                if(_scaffoldkey.currentState!.validate())
-                 {
-                   setState(() {
-                     nameController.text=nameController.text;
-                   });
-                 }
-
-              },
-                child: Container(
-
-                  height: 20,
-                  width: 50,
-                  color: Colors.pink,
-                ),
-              ),
-                    Container(height:300,
-width: 300,
-                      // child:   Image.asset('assets/images/f1.jpg',fit: BoxFit.contain
-// child: Image.network('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bubt.edu.bd%2F&psig=AOvVaw1_QGP21Suj_PMKhrVnFVWo&ust=1712591759448000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOCAzdG7sIUDFQAAAAAdAAAAABAE',fit:BoxFit.fitWidth)
-),
-
-
-
-
-                  ]
-
-              ),
-
-
-
-
-
-
-
-
-    )*/
-/*
-
-                  [
-
-
-                    SizedBox(
-                      height: 10,
-                    ),
-
-                    TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "Enter your name",
-
-                        ),
-                        controller: nameController,
-                        validator: (value) {
-                          if (value!.isEmpty || !RegExp(r'^[a-z A-Z]+$').hasMatch(value!)) {
-                            return "Enter correct name";
-                          }
-                          else
-                            return null;
-                        }
-                    ),
-
-                    SizedBox(
-                      height: 10,
-                    ),
-
-                    TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "Enter your Phone",
-
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty || !RegExp(r'^[+]*[0-9]{}+$').hasMatch(value!)) {
-                            return "Enter correct phone";
-                          }
-                          else
-                            return null;
-                        }
-
-                    ),
-
-
-                    SizedBox(
-                      height: 10,
-                    ),
-
-                    TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "Enter your Email",
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty || !RegExp(r'^[\w-\.]([\w-]+\.)+$').hasMatch(value!)) {
-                            return "Enter correct email";
-                          }
-                          else
-                            return null;
-                        }
-
-
-
-
-                    ),
-                    ElevatedButton(onPressed: (){
-                      if(_scaffoldkey.currentState!.validate())
-                      { setState(() {
-                        nameController.text=nameController.text;
-                      });
-                      }
-                      else
-                        print(_scaffoldkey.toString());
-                    }, child: Text("Sign up"),),
-                    SizedBox(
-                      height: 10,
-                    ),
-
-
-
-
-                  ]*/
-
-
-
-
-
-
-
-
-            ),
-
-
-
-        // child: TextField(),
-
-        //   child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //     children: [
-        //       Icon(Icons.access_alarm_outlined),
-        //       Icon(Icons.account_box_rounded),
-        //       Icon(Icons.add_card_outlined)
-        //     ],
-        //   ),
-        // )
-
-
-        /*     floatingActionButton: FloatingActionButton(onPressed: (){},child: Text("+"),),
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: Ontapped,
-          currentIndex: currenindex,
-
-
-          items: [
-
-            BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.menu),label: 'Menu'),
-            BottomNavigationBarItem(icon: Icon(Icons.propane),label: 'Profile')
-          ],
-        ),
-
-*/
-
-      );
-
-
-
-  }
-}
-/*
-  Widget build(BuildContext context)
-  {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Sumon"),
 
         ),
       ),
+    )
+
+
+
+
+
+    // Column(
+    //   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //   children: [
+    //     Padding(
+    //       padding: const EdgeInsets.all(8.0),
+    //       child: Text("Title",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w900),),
+    //     ),
+    //     Text(" Subtext"),
+    //     Icon(Icons.inbox) ,Text("Inbox")
+    //
+    //   ],
+    // )
+    
+      ),
+
+
     );
   }
-
-}*/
+}
