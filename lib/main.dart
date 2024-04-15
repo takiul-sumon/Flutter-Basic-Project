@@ -258,91 +258,157 @@ class _Myappstate extends State<Myapp> {
           backgroundColor: Colors.black12,
 
         ),
-    body: Drawer(
-      child:Padding(
-        
-        padding: const EdgeInsets.fromLTRB(5, 3, 10, 4),
-        child: ListView(children: [
-          // Container(
-          //    child:  Column(
-          //      children: [
-          //        Text("Title",style:TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),),
-          //        Text("Subtext")
-          //      ],
-          //    )
-          //
-          // ),
-          ListTile(
-            title:  Text("Title",style:TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),),
-            subtitle: Text("Subtext"),
+    // body: Drawer(
+    //   child:Padding(
+    //
+    //     padding: const EdgeInsets.fromLTRB(5, 3, 10, 4),
+    //     child: ListView(children: [
+    //       // Container(
+    //       //    child:  Column(
+    //       //      children: [
+    //       //        Text("Title",style:TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),),
+    //       //        Text("Subtext")
+    //       //      ],
+    //       //    )
+    //       //
+    //       // ),
+    //       ListTile(
+    //         title:  Text("Title",style:TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20),),
+    //         subtitle: Text("Subtext"),
+    //       ),
+    //
+    //
+    //
+    //       ListTile(
+    //         title: Text("INBOX",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+    //         leading: Icon(Icons.inbox),
+    //         onTap: (){
+    //           Inbox();
+    //
+    //
+    //         },
+    //       ),
+    //       ListTile(
+    //         title: Text("OUTBOX",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+    //         leading: Icon(Icons.outbox),
+    //
+    //       ),
+    //       ListTile(
+    //         title: Text("FAVORITE",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+    //         leading: Icon(Icons.favorite),
+    //       ),
+    //       ListTile(
+    //         title: Text("Archive",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+    //         leading: Icon(Icons.archive),
+    //       ),
+    //       ListTile(
+    //         title: Text("Trash",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+    //         leading: Icon(Icons.restore_from_trash),
+    //       ),
+    //       ListTile(
+    //         title: Text("Spam",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+    //         leading: Icon(Icons.dangerous_rounded),
+    //       ),
+    //       Divider(color: Colors.black38,),
+    //       ListTile(
+    //         subtitle: Text("Labels"),
+    //       ),
+    //
+    //
+    //
+    //       ListTile(
+    //         title: Text("Family",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+    //         leading: Icon(Icons.bookmark),
+    //       ),
+    //       ListTile(
+    //         title: Text("Friends",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+    //         leading: Icon(Icons.bookmark),
+    //
+    //       ),
+    //       ListTile(
+    //         title: Text("Work",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+    //         leading: Icon(Icons.bookmark),
+    //       ),
+    //       Divider(height: 1,
+    //       color: Colors.black38,),
+    //   ListTile(
+    //     title: Text("Settings & Accounts",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
+    //     leading: Icon(Icons.settings),
+    //
+    //   )
+    //
+    //     ],
+    //
+    //
+    //     ),
+    //   ),
+    // )
+        body: Center(
+          child: Stack(
+            children: [
+              Center(
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  color: Colors.pinkAccent,
+                ),
+              ),
+              Center(
+                child: Container(
+                  width: 200,
+                  height: 200,
+                  color: Colors.deepOrangeAccent,
+                ),
+              ),
+              Center(
+                child: Container(
+                  height:100,
+                  width: 100,
+                  color: Colors.amberAccent
+                ),
+              )
+            ],
           ),
+        )
 
 
 
-          ListTile(
-            title: Text("INBOX",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-            leading: Icon(Icons.inbox),
-            onTap: (){
-              Inbox();
-              onTap
 
-            },
-          ),
-          ListTile(
-            title: Text("OUTBOX",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-            leading: Icon(Icons.outbox),
 
-          ),
-          ListTile(
-            title: Text("FAVORITE",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-            leading: Icon(Icons.favorite),
-          ),
-          ListTile(
-            title: Text("Archive",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-            leading: Icon(Icons.archive),
-          ),
-          ListTile(
-            title: Text("Trash",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-            leading: Icon(Icons.restore_from_trash),
-          ),
-          ListTile(
-            title: Text("Spam",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-            leading: Icon(Icons.dangerous_rounded),
-          ),
-          Divider(color: Colors.black38,),
-          ListTile(
-            subtitle: Text("Labels"),
-          ),
+        // Card Widget
+        // Center(
+        //   child: Card(
+        //     shadowColor: Colors.black38,
+        //     elevation: 15,
+        //     child: Padding(
+        //
+        //       padding: const EdgeInsets.all(8.0),
+        //       child: Column(
+        //         mainAxisSize: MainAxisSize.min,
+        //         children: <Widget>[
+        //          // SizedBox(
+        //          //
+        //          //   child: Text("Hello World",)
+        //          // ,
+        //          // ),
+        //           TextButton(onPressed: (){}, child: Text("Hello World"))
+        //
+        //
+        //         ],
+        //       ),
+        //     ),
+        //   ),
+        // )
 
 
 
-          ListTile(
-            title: Text("Family",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-            leading: Icon(Icons.bookmark),
-          ),
-          ListTile(
-            title: Text("Friends",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-            leading: Icon(Icons.bookmark),
-
-          ),
-          ListTile(
-            title: Text("Work",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-            leading: Icon(Icons.bookmark),
-          ),
-          Divider(height: 1,
-          color: Colors.black38,),
-      ListTile(
-        title: Text("Settings & Accounts",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-        leading: Icon(Icons.settings),
-
-      )
-
-        ],
-
-
-        ),
-      ),
-    )
+        // Center(
+        //   child: Card(
+        //     shadowColor: Colors.cyan,
+        //     elevation: 15,
+        //     child: Text("Hello World"),
+        //   ),
+        // ),
 
 
 
