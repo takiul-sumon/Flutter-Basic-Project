@@ -138,53 +138,133 @@
 
 // State Management system
 
+// import 'package:flutter/material.dart';
+// import 'package:flutter_application_1/widget/nevigator.dart';
+//
+//  void main()
+//  {
+//    runApp(MyApp());
+//  }
+//  class MyApp extends StatelessWidget{
+//    @override
+//    Widget build(BuildContext  context){
+//      return MaterialApp(
+//        home: HomePage(),
+//      );
+//    }
+//  }
+//
+//
+//
+//
+//
+// class Nevigator extends StatelessWidget{
+//   @override
+//   Widget build(BuildContext context)
+//   {
+//     return MaterialApp(
+//
+//       title: "Navigator",
+//       home: Scaffold(
+//         appBar: AppBar(title: Text("Homepage"),),
+//         body: Center(
+//           child: Column(
+//             children: [
+//               Text("Change Screan"),
+//     ElevatedButton(
+//     onPressed: (){
+//   Navigator.push(context, MaterialPageRoute(builder: (context) {
+//   return HomePage();
+//   },));
+//   },child: Icon(Icons.accessibility),
+//     )
+//
+//               ,
+//             ],
+//           ),
+//         )
+//       ),
+//
+//     );
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widget/nevigator.dart';
-
- void main()
- {
-   runApp(MyApp());
- }
- class MyApp extends StatelessWidget{
-   @override
-   Widget build(BuildContext  context){
-     return MaterialApp(
-       home: HomePage(),
-     );
-   }
- }
 
 
 
+void main()
+{
+  runApp(Myapp());
+}
+class Myapp extends StatefulWidget{
 
 
-class Nevigator extends StatelessWidget{
   @override
-  Widget build(BuildContext context)
+  State<StatefulWidget> createState()
   {
+    return _Myappstate();
+  }
+}
+class _Myappstate extends State<Myapp> {
+  // List <Contact> contacts= [];
+
+
+  var arrdata = [
+
+      {"Name":"takiul","age":"15"},
+  {"Name":"Islam","age":"20"},
+  {"Name":"Sumon","age":"36"}
+];
+
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
 
-      title: "Navigator",
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text("Homepage"),),
-        body: Center(
-          child: Column(
-            children: [
-              Text("Change Screan"),
-    ElevatedButton(
-    onPressed: (){
-  Navigator.push(context, MaterialPageRoute(builder: (context) {
-  return HomePage();
-  },));
-  },child: Icon(Icons.accessibility),
-    )
+        // backgroundColor: Colors.black12,
 
-              ,
-            ],
-          ),
-        )
-      ),
 
-    );
+        appBar: AppBar(
+
+          backgroundColor: Colors.lightBlue,
+          title: Text("Contacts", style: TextStyle(color: Colors.white,),),
+          elevation: 30,
+          shadowColor: Colors.black,
+
+
+        ),
+        body: Container(
+
+            child: ListView(
+                    children: arrdata.map((value){
+                      return ListTile(
+                        leading: Text(value['age'].toString()),
+                      );
+                    }
+                    ).toList(),
+                  )
+
+
+
+
+            ),
+
+
+
+
+
+      ),);
   }
 }
