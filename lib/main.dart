@@ -194,77 +194,141 @@
 
 
 
-
-
-
+//
+//
+//
+//
+//
+// import 'package:flutter/material.dart';
+//
+//
+//
+// void main()
+// {
+//   runApp(Myapp());
+// }
+// class Myapp extends StatefulWidget{
+//
+//
+//   @override
+//   State<StatefulWidget> createState()
+//   {
+//     return _Myappstate();
+//   }
+// }
+// class _Myappstate extends State<Myapp> {
+//   // List <Contact> contacts= [];
+//
+//
+//   var arrdata = [
+//
+//       {"Name":"takiul","age":"15"},
+//   {"Name":"Islam","age":"20"},
+//   {"Name":"Sumon","age":"36"}
+// ];
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         // backgroundColor: Colors.black12,
+//
+//
+//         appBar: AppBar(
+//
+//           backgroundColor: Colors.lightBlue,
+//           title: Text("Contacts", style: TextStyle(color: Colors.white,),),
+//           elevation: 30,
+//           shadowColor: Colors.black,
+//
+//
+//         ),
+//         body: Container(
+//
+//             child: ListView(
+//                     children: arrdata.map((value){
+//                       return ListTile(
+//                         leading: Text(value['age'].toString()),
+//                         title: Text(value['Name'].toString())
+//                       );
+//                     }
+//                     ).toList(),
+//                   )
+//
+//
+//
+//
+//             ),
+//
+//
+//
+//
+//
+//       ),);
+//   }
+// }
+// import 'package:flutter/material.dart';
+//
+// void main(){
+//   runApp(name());
+// }
+// class name extends StatefulWidget {
+//   const name({super.key});
+//
+//   @override
+//   State<name> createState() => _nameState();
+// }
+//
+// class _nameState extends State<name> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false
+//       ,
+//       home: Homepage(
+//       ),
+//     );
+//
+//   }
+// }
+// class Homepage extends StatelessWidget {
+//   const Homepage({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//  body: Center(child: Container(child: Text("Homepage"),)),
+//     );
+//   }
+// }
 
 
 import 'package:flutter/material.dart';
 
-
-
-void main()
-{
-  runApp(Myapp());
+void main() {
+  runApp(MyApp());
 }
-class Myapp extends StatefulWidget{
 
+class MyApp extends StatelessWidget {
 
-  @override
-  State<StatefulWidget> createState()
-  {
-    return _Myappstate();
-  }
-}
-class _Myappstate extends State<Myapp> {
-  // List <Contact> contacts= [];
-
-
-  var arrdata = [
-
-      {"Name":"takiul","age":"15"},
-  {"Name":"Islam","age":"20"},
-  {"Name":"Sumon","age":"36"}
-];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        // backgroundColor: Colors.black12,
-
-
+        body: Container(
+child: Image.asset('assets/easy.jpg',fit: BoxFit.fill,),
+        ),
         appBar: AppBar(
 
-          backgroundColor: Colors.lightBlue,
-          title: Text("Contacts", style: TextStyle(color: Colors.white,),),
-          elevation: 30,
-          shadowColor: Colors.black,
-
-
+          backgroundColor: Colors.redAccent,
+          centerTitle: true,
+          title: Text("I am Rich",style: TextStyle(color: Colors.white),),
         ),
-        body: Container(
-
-            child: ListView(
-                    children: arrdata.map((value){
-                      return ListTile(
-                        leading: Text(value['age'].toString()),
-                      );
-                    }
-                    ).toList(),
-                  )
-
-
-
-
-            ),
-
-
-
-
-
-      ),);
+      ),
+    );
   }
 }
