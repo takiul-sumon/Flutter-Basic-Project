@@ -44,25 +44,38 @@ class _ButtonWidgetState extends State<ButtomWidget> {
               width: 50,
               child: Text('data'),
             ),
-             ElevatedButton(
-                onPressed: () {
-                  print('object');
-                },
-                child: Text('data',style: TextStyle(color: Colors.black),),
-                style:ElevatedButton.styleFrom(
-backgroundColor: Colors.white,
-                  //
-foregroundColor: Colors.white,                 
-                  // onPrimary: Colors.white,
-                  shadowColor: Colors.white,
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+            ElevatedButton(
+              onPressed: () {
+                print('object');
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+                decoration: BoxDecoration(
+          color: Colors.white, // Button fill color
+          borderRadius: BorderRadius.circular(8)),
+                child: Text(
+                  'data',
+                  style: TextStyle(color: Colors.black,
                   ),
-                  padding: EdgeInsets.all(20),
-                  minimumSize: Size(100, 50),
+                  
                 ),
-              )
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                //
+// foregroundColor: Colors.white,
+                // onPrimary: Colors.white,
+                shadowColor: Colors.white,
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  side: const BorderSide(color: Colors.amber, width: 2),
+                ),
+                padding: const EdgeInsets.all(8),
+                minimumSize: Size(100, 50),
+              ),
+              clipBehavior: Clip.hardEdge,
+            )
           ],
         ),
       ),
