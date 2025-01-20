@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_expenses/bottom_bar/home.dart';
 
 class ButtomWidget extends StatefulWidget {
   const ButtomWidget({super.key});
@@ -11,17 +12,20 @@ class _ButtonWidgetState extends State<ButtomWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
         child: Column(
           children: [
             SizedBox(
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: (
+                  
+                ) {
+Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScrean()));
+
                   print('object');
                 },
-                child: Card(
-                  child: Text('data'),
-                ),
+                child: Text('data'),
                 style: ButtonStyle(),
               ),
             ),
@@ -57,7 +61,7 @@ class _ButtonWidgetState extends State<ButtomWidget> {
                   'data',
                   style: TextStyle(color: Colors.black,
                   ),
-                  
+
                 ),
               ),
               style: ElevatedButton.styleFrom(

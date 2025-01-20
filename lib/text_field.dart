@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_expenses/buttons.dart';
 
 class TextFields extends StatefulWidget {
   const TextFields({super.key});
@@ -26,10 +27,8 @@ class _TextFieldsState extends State<TextFields> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                   ),
-                  
                 ),
               ),
-              
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TextField(
@@ -70,10 +69,12 @@ class _TextFieldsState extends State<TextFields> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ButtomWidget(),));
+                },
                 child: Text('Submit'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.amber,
+                  backgroundColor: Colors.black54,
                   foregroundColor: Colors.white,
                   shadowColor: Colors.black,
                   elevation: 5,
