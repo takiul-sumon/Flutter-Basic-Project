@@ -9,6 +9,7 @@ class ButtomWidget extends StatefulWidget {
 }
 
 class _ButtonWidgetState extends State<ButtomWidget> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +19,10 @@ class _ButtonWidgetState extends State<ButtomWidget> {
           children: [
             SizedBox(
               child: ElevatedButton(
-                onPressed: (
-                  
-                ) {
-Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScrean()));
-
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomeScrean()));
+        
                   print('object');
                 },
                 child: Text('data'),
@@ -55,19 +55,19 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScrean()));
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 12, horizontal: 15),
                 decoration: BoxDecoration(
-          color: Colors.white, // Button fill color
-          borderRadius: BorderRadius.circular(8)),
+                    color: Colors.white, // Button fill color
+                    borderRadius: BorderRadius.circular(8)),
                 child: Text(
                   'data',
-                  style: TextStyle(color: Colors.black,
+                  style: TextStyle(
+                    color: Colors.black,
                   ),
-
                 ),
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.transparent,
                 //
-// foregroundColor: Colors.white,
+        // foregroundColor: Colors.white,
                 // onPrimary: Colors.white,
                 shadowColor: Colors.white,
                 elevation: 5,
