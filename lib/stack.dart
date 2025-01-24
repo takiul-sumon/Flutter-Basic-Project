@@ -9,26 +9,37 @@ class StackWidget extends StatelessWidget {
       body: Center(
         child: Stack(
           children: [
-            GestureDetector(
-              onTap: () {
-                print('object');
-              },
-              child: Container(
-                height: 200,
-                width: 200,
-                color: Colors.amber,
+            Container(
+              height: 240,
+              width: 188,
+              decoration: BoxDecoration(
+                  color: Colors.amber,
+                  borderRadius: BorderRadius.circular(24),
+                  image: const DecorationImage(
+                      image: AssetImage('assets/easy.jpg'), fit: BoxFit.cover)),
+            ),
+            Positioned(
+              top: 50,
+              left: 32,
+              child: Column(
+                children: [
+                  Chip(
+                      label: Text(
+                    'dta',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ))
+                ],
               ),
             ),
-            Container(
-              height: 150,
-              width: 150,
-              color: Colors.blue,
-            ),
-            Container(
-              height: 100,
-              width: 100,
-              color: Colors.green,
-            ),
+            // Positioned(
+            //   top: 40,
+            //   left: 40,
+            //   child: Container(
+            //     height: 150,
+            //     width: 150,
+            //     color: Colors.green,
+            //   ),
+            // ),
           ],
         ),
       ),
