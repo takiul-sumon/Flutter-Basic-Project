@@ -19,8 +19,8 @@ class StackWidget extends StatelessWidget {
                       image: AssetImage('assets/easy.jpg'), fit: BoxFit.cover)),
             ),
             Positioned(
-              top: 50,
-              left: 32,
+              top: 140,
+              left: 10,
               child: Column(
                 children: [
                   Padding(
@@ -29,7 +29,7 @@ class StackWidget extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(59)),
                         backgroundColor: Color(0xff4D5652),
-                        label: Text(
+                        label: const Text(
                           'Alley Palace',
                           style: TextStyle(fontSize: 12, color: Colors.white),
                         )),
@@ -52,15 +52,34 @@ class StackWidget extends StatelessWidget {
                 ],
               ),
             ),
-            // Positioned(
-            //   top: 40,
-            //   left: 40,
-            //   child: Container(
-            //     height: 150,
-            //     width: 150,
-            //     color: Colors.green,
-            //   ),
-            // ),
+            Positioned(
+              left: 120,top: 170,
+                child: Container(
+                    width: 40, // Circle size
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Colors.white, // Background color of the circle
+                      shape:
+                          BoxShape.circle, // Ensures the container is circular
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2), // Shadow color
+                          blurRadius: 6, // Softness of the shadow
+                          offset: Offset(0, 3), // Shadow position
+                        ),
+                      ],
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        // Add your onPressed logic here
+                      },
+                      icon:const Icon(
+                        Icons.favorite,
+                        color: Colors.red, // Heart icon color
+                        size: 20, // Icon size
+                      ),
+                      splashRadius: 24, // Reduces splash effect size
+                    )))
           ],
         ),
       ),
