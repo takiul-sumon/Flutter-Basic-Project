@@ -23,11 +23,32 @@ class StackWidget extends StatelessWidget {
               left: 32,
               child: Column(
                 children: [
+                  Padding(
+                    padding: EdgeInsets.all(6),
+                    child: Chip(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(59)),
+                        backgroundColor: Color(0xff4D5652),
+                        label: Text(
+                          'Alley Palace',
+                          style: TextStyle(fontSize: 12, color: Colors.white),
+                        )),
+                  ),
                   Chip(
-                      label: Text(
-                    'dta',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ))
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(59)),
+                      backgroundColor: Color(0xff4D5652),
+                      label: const Row(
+                        children: [
+                          Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          Text(' 4.1',
+                              style:
+                                  TextStyle(fontSize: 15, color: Colors.white))
+                        ],
+                      ))
                 ],
               ),
             ),
