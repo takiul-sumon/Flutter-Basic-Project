@@ -34,18 +34,20 @@ class HomepageApi extends StatelessWidget {
               builder: (context, snapshot) {
                 return ListView.builder(
                   itemCount: update_comments.length,
-                  
                   itemBuilder: (context, index) {
                     return Card(
-                      child: Text(update_comments[index].email.toString()),
-
-                    );
+                        child: Column(
+                      children: [
+                        Text(update_comments[index].id.toString()),
+                        Text(update_comments[index].email.toString()),
+                        Text(update_comments[index].body.toString()),
+                      ],
+                    ));
                   },
                 );
               },
             ),
           ),
-          
         ],
       ),
     );

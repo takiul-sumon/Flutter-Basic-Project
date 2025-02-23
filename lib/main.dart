@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personal_expenses/api/home.dart';
+import 'package:personal_expenses/api_connection.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,12 +13,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.blue,
-        appBarTheme: AppBarTheme(
+        appBarTheme: const
+         AppBarTheme(
           backgroundColor: Colors.blue,
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: HomepageApi(),
+      home: Api_Connection(),
     );
   }
 }
