@@ -10,19 +10,28 @@ class Api_Connection extends StatefulWidget {
 
 class _Api_ConnectionState extends State<Api_Connection> {
   final Prodductcontroller prodductcontroller = Prodductcontroller();
-  Future<void> fetchdata() async {
-    await prodductcontroller.fetchdata();
-    setState(() {});
-    print(prodductcontroller.Product.length);
-  }
+  
 
-  void showAddProductDialog(BuildContext context) {
+  void showAddProductDialog(
+      { 
+      String? id,
+      String? productName,
+      String? img,
+      double? qty,
+      double? unitPrice,
+      double? totalPrice}) {
     final TextEditingController nameController = TextEditingController();
     final TextEditingController codeController = TextEditingController();
     final TextEditingController imageController = TextEditingController();
     final TextEditingController qtyController = TextEditingController();
     final TextEditingController unitPriceController = TextEditingController();
     final TextEditingController totalPriceController = TextEditingController();
+
+    nameController.text == productName ?? '';
+    imageController.text == img ?? '';
+    qtyController.text == qty.toString() ?? '';
+    unitPriceController.text == unitPrice.toString() ?? '';
+    totalPriceController.text == totalPrice.toString() ?? '';
 
     showDialog(
       context: context,
@@ -54,21 +63,36 @@ class _Api_ConnectionState extends State<Api_Connection> {
               keyboardType: TextInputType.number),
           ElevatedButton(
               onPressed: () {
-                setState(() {
+                if (id == null) {
                   prodductcontroller.createProduct(
                       nameController.text,
                       imageController.text,
                       int.parse(qtyController.text),
                       int.parse(unitPriceController.text),
                       int.parse(totalPriceController.text));
-                  fetchdata();
-                  Navigator.of(context).pop();
-                });
+                } else {
+                  prodductcontroller.updateProduct(
+                      id,
+                      nameController.text,
+                      imageController.text,
+                      int.parse(qtyController.text),
+                      int.parse(unitPriceController.text),
+                      int.parse(totalPriceController.text));
+                }
+                fetchdata();
+
+                Navigator.pop(context);
+                setState(() {});
               },
-              child: Text('Add To Api'))
+              child: Text(id == null ? 'Add To Api' : 'Update Product')),
         ],
       )),
     );
+  }
+  Future<void> fetchdata() async {
+    await prodductcontroller.fetchdata();
+    setState(() {});
+    print(prodductcontroller.Product.length);
   }
 
   @override
@@ -88,41 +112,53 @@ class _Api_ConnectionState extends State<Api_Connection> {
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemCount: prodductcontroller.Product.length,
-        itemBuilder: (context, index) => Card(
-          child: ListTile(
-            leading: Container(
-              height: 30,
-              width: 30,
-              color: Colors.blue,
-              child: Image.network(
-                  'https://inspireonline.in/cdn/shop/files/iPhone_16_Teal_PDP_Image_Position_1__en-IN_6aed3712-113a-4579-8a71-41c02aa0003c.jpg?v=1727247732&width=1445'),
-            ),
-            title: Text(prodductcontroller.Product[index]["ProductName"]),
-            subtitle:
-                Text('\$${prodductcontroller.Product[index]["UnitPrice"]}'),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.edit),
-                  onPressed: () {},
+          itemCount: prodductcontroller.Product.length,
+          itemBuilder: (context, index) {
+            var product = prodductcontroller.Product[index];
+            return Card(
+              child: ListTile(
+                leading: Container(
+                  height: 30,
+                  width: 30,
+                  color: Colors.blue,
+                  child: Image.network(
+                      'https://inspireonline.in/cdn/shop/files/iPhone_16_Teal_PDP_Image_Position_1__en-IN_6aed3712-113a-4579-8a71-41c02aa0003c.jpg?v=1727247732&width=1445'),
                 ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                  ),
-                  onPressed: () {},
+                title: Text('${product.productName}'),
+                subtitle: Text('\$${product.unitPrice}'),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.edit),
+                      onPressed: () {
+                        showAddProductDialog(
+                       
+                            id: product.sId,
+                            productName: product.productName,
+                            img: product.img,
+                            qty: double.parse(product.qty.toString()),
+                            unitPrice:
+                                double.parse(product.unitPrice.toString()),
+                            totalPrice:
+                                double.parse(product.totalPrice.toString()));
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.delete,
+                        color: Colors.red,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-        ),
-      ),
+              ),
+            );
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showAddProductDialog(context);
+          showAddProductDialog();
         },
         child: Text("Add new"),
       ),
