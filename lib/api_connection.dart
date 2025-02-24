@@ -27,11 +27,11 @@ class _Api_ConnectionState extends State<Api_Connection> {
     final TextEditingController unitPriceController = TextEditingController();
     final TextEditingController totalPriceController = TextEditingController();
 
-    nameController.text == productName ?? '';
-    imageController.text == img ?? '';
-    qtyController.text == qty.toString() ?? '';
-    unitPriceController.text == unitPrice.toString() ?? '';
-    totalPriceController.text == totalPrice.toString() ?? '';
+    nameController.text = productName ?? '';
+    imageController.text = img ?? '';
+    qtyController.text = qty.toString() ?? '';
+    unitPriceController.text = unitPrice.toString() ??  '';
+    totalPriceController.text = totalPrice.toString() ??  '';
 
     showDialog(
       context: context,
